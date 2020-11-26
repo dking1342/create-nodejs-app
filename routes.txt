@@ -1,0 +1,29 @@
+
+// npm packages
+const express = require('express');
+const router = express.Router();
+// optional for passport if authentication is required
+
+// custom middleware
+const {  } = require('./../controllers/XYZ');
+
+
+// routes 
+router.get('/', (req,res)=> XXX)
+
+router.route('/XXX')
+    .get((req,res)=> XXX)
+    .post((req,res)=> XXX)
+
+
+
+
+
+// error handling for bad route requests
+router.use((req,res)=> {
+    // custom middleware for 404s
+});
+
+module.exports = {
+    router
+}

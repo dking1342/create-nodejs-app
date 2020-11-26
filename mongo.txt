@@ -1,0 +1,33 @@
+
+const mongoose = require('mongoose');
+const { Schema } = require('mongoose');
+require('dotenv').config();
+
+// mongoose server init
+const conn = process.env.DB_STRING || 'mongodb://127.0.0.1:27017/user';
+const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+};
+
+// connection
+const connection = mongoose.createConnection(conn,options);
+
+// schema
+// create name for the schema and put in the model
+const XXXSchema = new Schema({
+
+    // make schema here
+
+});
+
+// model
+// create variable name for model and the name for the db
+const XXX = connection.model('XXX',XXXSchema);
+
+// export connection
+module.exports = {
+    connection
+};

@@ -1,0 +1,36 @@
+
+// npm packages with some optional
+const express = require('express');
+const mongoose = require('mongoose');
+// const session = require('express-session');
+// const passport = require('passport');
+// const crypto = require('crypto');
+const { router } = require('./routes/routes');
+// const { connection } = require('./config/usersdb');
+// const MongoStore = require('connect-mongo')(session);
+
+// general setup
+require('dotenv').config();
+
+// app and routes init
+const app = express();
+
+// init parsers
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+// sessions middleware here if authentication is needed
+
+// init views engines
+// app.set('view engine', 'ejs');
+app.use(express.static("public"));
+
+// passport middleware here if authentication is needed
+
+// middleware to access the routes
+app.use(router);
+
+// server init
+const PORT = 3000 || process.env.PORT;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}/`));
+
